@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-main: #ffffff;
+  --bg-sidebar: #fafafa;
+  --bg-editor: #1e1e1e;
+  --bg-console: #ffffff;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --text-editor: #d4d4d4;
+  --text-console: #1f2937;
+  --border-color: #e5e7eb;
+  --border-dark: #333333;
+  --primary-btn: #2563eb;
+  --primary-btn-hover: #1d4ed8;
+  --secondary-btn: #f3f4f6;
+  --secondary-btn-hover: #e5e7eb;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, monospace;
+
+  --header-height: 48px;
+}
+
+:root[data-theme='dark'] {
+  --bg-main: #0f111a;
+  --bg-sidebar: #1a1d27;
+  --bg-editor: #1e1e1e;
+  --bg-console: #0f111a;
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-editor: #d4d4d4;
+  --text-console: #e2e8f0;
+  --border-color: #334155;
+  --border-dark: #1e293b;
+  --primary-btn: #3b82f6;
+  --primary-btn-hover: #60a5fa;
+  --secondary-btn: #1e293b;
+  --secondary-btn-hover: #334155;
+  --success-color: #34d399;
+  --error-color: #f87171;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  overflow: hidden;
+  /* Avoid main window scroll, rely on panes */
+}
+
+/* Base Components */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+  font-size: 14px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background-color: var(--primary-btn);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-btn-hover);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-btn);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-btn-hover);
+}
+
+.btn-icon {
+  padding: 6px;
+  border-radius: 4px;
+  color: var(--text-muted);
+}
+
+.btn-icon:hover {
+  background-color: var(--secondary-btn);
+  color: var(--text-main);
+}
+
+/* Split Pane Customization */
+.split {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.gutter {
+  background-color: var(--border-color);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transition: background-color 0.1s;
+}
+
+.gutter.gutter-horizontal {
+  cursor: col-resize;
+  width: 6px !important;
+}
+
+.gutter.gutter-vertical {
+  cursor: row-resize;
+  height: 6px !important;
+}
+
+.gutter:hover {
+  background-color: var(--primary-btn);
+  opacity: 0.5;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Markdown/Problem Area Styles */
+.problem-content {
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.problem-content h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.problem-content h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.problem-content p {
+  margin-bottom: 16px;
+}
+
+.problem-content pre {
+  background-color: var(--bg-sidebar);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+
+.problem-content code {
+  font-family: var(--font-mono);
+  background-color: var(--bg-sidebar);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #c53030;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-easy {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #059669;
+}
+
+.badge-medium {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+}
+
+.badge-hard {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+}

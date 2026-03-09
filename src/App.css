@@ -1,0 +1,318 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-main);
+}
+
+/* Navbar */
+.navbar {
+  height: var(--header-height);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background-color: var(--bg-main);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 8px;
+  height: 100%;
+}
+
+.nav-tab {
+  padding: 0 16px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-tab:hover {
+  color: var(--text-main);
+}
+
+.nav-tab.active {
+  color: var(--primary-btn);
+  border-bottom-color: var(--primary-btn);
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-main);
+  margin-right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Split Pane Layout */
+.main-split {
+  flex: 1;
+  overflow: hidden;
+  height: calc(100vh - var(--header-height));
+  display: flex;
+}
+
+/* Left Pane */
+.left-pane {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-main);
+  overflow-y: auto;
+  padding: 24px 32px;
+}
+
+.problem-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.problem-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Right Pane */
+.right-pane {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-editor);
+  overflow: hidden;
+}
+
+/* Editor Header */
+.editor-header {
+  height: 48px;
+  flex-shrink: 0;
+  background-color: var(--bg-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  /* To separate from left pane if gutter is white */
+}
+
+.language-select {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  font-family: inherit;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/* Right Pane Inner Splitter */
+.editor-console-split {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.editor-container {
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-editor);
+  overflow: hidden;
+}
+
+/* Console Area */
+.console-area {
+  background-color: var(--bg-console);
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.console-header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-sidebar);
+  gap: 16px;
+}
+
+.console-tab {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.console-tab.active {
+  color: var(--text-main);
+  border-bottom: 2px solid var(--primary-btn);
+}
+
+.console-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.console-content .label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+.output-box {
+  background-color: var(--bg-sidebar);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 16px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.output-success {
+  background-color: rgba(16, 185, 129, 0.05);
+  border-color: rgba(16, 185, 129, 0.2);
+  color: var(--success-color);
+}
+
+.output-error {
+  background-color: rgba(239, 68, 68, 0.05);
+  border-color: rgba(239, 68, 68, 0.2);
+  color: var(--error-color);
+}
+
+/* Footer Bottom Actions */
+.editor-footer {
+  height: 56px;
+  flex-shrink: 0;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-main);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 16px;
+  gap: 12px;
+}
+
+/* Markdown specific classes for constraints */
+.constraints-list {
+  background-color: var(--bg-sidebar);
+  padding: 16px;
+  border-radius: 8px;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.constraints-list li {
+  margin-bottom: 8px;
+  padding-left: 12px;
+  position: relative;
+}
+
+.constraints-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+}
+
+/* Settings Modal Elements */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90vw;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.setting-row label {
+  font-weight: 500;
+  color: var(--text-main);
+  font-size: 14px;
+}
+
+.setting-row select {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-sidebar);
+  color: var(--text-main);
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Fullscreen Pane */
+.right-pane.fullscreen-active {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 1000 !important;
+  max-width: 100vw !important;
+}
